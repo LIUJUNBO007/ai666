@@ -2,12 +2,16 @@ import os
 
 class Config:
     # 飞书应用配置
-    FEISHU_APP_ID = "cli_a75472bbb83a500d"
-    FEISHU_APP_SECRET = "YoCfSgSr6pHgeRQqV6skJcuwwhOlmf4n"
+    FEISHU_APP_ID = os.environ.get('FEISHU_APP_ID')
+    FEISHU_APP_SECRET = os.environ.get('FEISHU_APP_SECRET')
     
     # 多维表格配置
-    BASE_ID = "D0olbfeHEaDMPqsz3f2c17adnyd"
-    TABLE_ID = "tblBzpqhO3ODWOE7"
+    BASE_ID = os.environ.get('BASE_ID')
+    TABLE_ID = os.environ.get('TABLE_ID')
+    
+    # 验证环境变量
+    if not all([FEISHU_APP_ID, FEISHU_APP_SECRET, BASE_ID, TABLE_ID]):
+        raise ValueError("缺少必要的飞书应用配置或多维表格配置")
     
     # Flask配置
     SECRET_KEY = os.urandom(24)
