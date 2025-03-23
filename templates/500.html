@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}服务器错误 - 个人博客{% endblock %}
+
+{% block content %}
+<div class="error-container">
+    <div class="error-code">500</div>
+    <div class="error-message">服务器内部错误</div>
+    <a href="{{ url_for('index') }}" class="read-more">返回首页</a>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}页面未找到 - 个人博客{% endblock %}
+
+{% block content %}
+<div class="error-container">
+    <div class="error-code">404</div>
+    <div class="error-message">页面未找到</div>
+    <a href="{{ url_for('index') }}" class="read-more">返回首页</a>
+</div>
+{% endblock %}
